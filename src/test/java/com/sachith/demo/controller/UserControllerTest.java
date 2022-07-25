@@ -56,7 +56,7 @@ class UserControllerTest {
                         post("/api/v1/user")
                                 .contentType(new MediaType(MediaType.APPLICATION_JSON))
                                 .content(requestJson))
-               // .andDo(print())
+                .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.errors", hasSize(1)))
                 .andExpect(jsonPath("$.errors[*]", is(Matchers.containsInAnyOrder(Matchers.is("Invalid Email")))));
